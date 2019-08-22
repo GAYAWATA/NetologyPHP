@@ -1,5 +1,5 @@
-
 <?php
+ $hourcaseWork = date ('H');
  $hourcase = date ('H');
  $daycase = date('l');
 if ($hourcase < 6) {
@@ -19,6 +19,29 @@ if ($hourcase < 6) {
      $linkPicture = 'img1/night.jpg';
 };
 
+if (($hourcaseWork == 9 and $hourcaseWork <= 18) and ($daycase == 'Monday' || $daycase == 'Tuesday')) {
+	$helloWork = 'Это лучший день, чтобы обратиться в Horns&Hooves! Мы работаем для Вас до 18:00';
+} else {
+	$helloWork = 'Завтра лучший день, чтобы обратиться в Horns&Hooves! Мы работаем для Вас с 09:00';
+}
+if (($hourcaseWork == 9 and $hourcaseWork <= 18) and ($daycase == 'Wednesday')) {
+	$helloWork = 'Это лучший день, чтобы обратиться к нам! Мы работаем для Вас до 18:00';
+} else {
+	$helloWork = 'Завтра лучший день, чтобы обратиться в Horns&Hooves! Мы работаем для Вас с 10:00';
+}
+if (($hourcaseWork == 10 and $hourcaseWork <= 18) and ($daycase == 'Thursday' || $daycase == 'Friday')) {
+	$helloWork = 'Это лучший день, чтобы обратиться к нам! Мы работаем для Вас до 18:00';
+} else {
+	$helloWork = 'Завтра лучший день, чтобы обратиться в Horns&Hooves! Мы работаем для Вас с 10:00';
+}
+if (($hourcaseWork == 10 and $hourcaseWork <= 18) and ($daycase == 'Saturday')) {
+	$helloWork = 'Это лучший день, чтобы обратиться к нам! Мы работаем для Вас до 18:00';
+} else {
+    $hourcaseWork = 'Послезавтра лучший день, чтобы обратиться в Horns&Hooves! Мы работаем для Вас с 10:00';
+}
+if ($daycase == 'Sunday') {
+	$helloWork = 'Завтра лучший день, чтобы обратиться в Horns&Hooves! Мы работаем для Вас с 09:00';
+};
 switch ($daycase) {
     case 'Sunday': $daycase = "Воскресенье"; break;
     case 'Monday': $daycase = "Понедельник"; break;
@@ -26,7 +49,7 @@ switch ($daycase) {
     case 'Wednesday': $daycase = "Среда"; break;
     case 'Thursday': $daycase = "Четверг"; break;
     case 'Friday': $daycase = "Пятница"; break;
-    case 'Sunday': $daycase = "Суббота"; break;
+    case 'Saturday': $daycase = "Суббота"; break;
     default: echo "Ошибка"; break;
 }
 ?>
@@ -52,9 +75,7 @@ switch ($daycase) {
         background-color: #fff;
         margin: 25% auto;
         width: 25%;
-      }
-    
-    
+      } 
     </style>
     <!-- подключение стилевого файла -->
 </head>
@@ -63,7 +84,8 @@ switch ($daycase) {
     <div>
         <p>Здравствуйте, сегодня
              <?php
-         echo $daycase ." $hourcase" . " часов! " . "<br/>"; echo $helloWord;
+         echo $daycase ." $hourcase" . " часов! " . "<br/>"; echo $helloWord ."<br/>"."<br/>";
+         echo $helloWork;
             ?>
         </p>
     </div>
